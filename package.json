@@ -1,6 +1,7 @@
 {
   "name": "webpack-config-creator",
-  "author": "Johnny Wang",
+  "repository": "https://github.com/johnnywang1994/webpack-config-creator.git",
+  "author": "Johnny Wang <johnny29621189@kimo.com>",
   "version": "1.0.3",
   "main": "index.js",
   "license": "MIT",
@@ -51,5 +52,11 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keywords": [
+    "webpack",
+    "webpack-cli",
+    "webpack-dev-server",
+    "webpack-config"
   ]
 }
