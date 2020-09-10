@@ -1,13 +1,14 @@
 # webpack-config-creator
 My tool for fast creating a webpack developing environment easily, and also for memorizing.
 
+It is recommended to install `cross-env` together to pass NODE_ENV in your command line.
 
 ## Install
 
 ```cmd
-npm install webpack-config-creator --dev
+npm install webpack webpack-cli webpack-config-creator --dev
 // or
-yarn add webpack-config-creator -D
+yarn add webpack webpack-cli webpack-config-creator -D
 ```
 
 
@@ -50,7 +51,7 @@ module.exports = config;
 
 ### rules
 
-  here uses the default settings for fast usage
+  here uses the default settings for fast usage, since this plugin with not auto install all the package, please install the packages related to the following.
 
   - type: `Array(String[, String])`
   - allowed rules: `babel`, `css`, `scss`, `vue-scss`, `eslint`, `vue`, `vue-next`, `url`, `file-url`
@@ -58,6 +59,8 @@ module.exports = config;
 #### babel
 
   This will inject default babel loaders with following settings, you can also overwrite it by your `.babelrc`...etc.
+
+  - default dependencies: `babel-loader @babel/core @babel/preset-env @babel/runtime @babel/plugin-syntax-dynamic-import @babel/plugin-transform-runtime`
 
   > `resolve` get path from your root folder of project
 
@@ -84,6 +87,8 @@ module.exporst = {
 ```
 
 #### css
+
+  - default dependencies: `style-loader css-loader mini-css-extract-plugin postcss-loader autoprefixer`
 
 ```js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -128,6 +133,8 @@ module.exports = {
 
 Almost same as above `css`
 
+  - default dependencies: css deps + `node-sass sass-loader`
+
 ```js
 //...
 
@@ -151,6 +158,8 @@ module.exports = {
 
 #### eslint
 
+  - default dependencies: `eslint eslint-loader babel-eslint`
+
 ```js
 module.exports = {
   test: /\.(js|vue)$/,
@@ -162,6 +171,8 @@ module.exports = {
 ```
 
 #### url
+
+  - default dependencies: `url-loader`
 
 ```js
 module.exports = {
@@ -180,6 +191,8 @@ module.exports = {
 
 same as `url`, add fallback to file-loader
 
+  - default dependencies: `url-loader file-loader`
+
 ```js
 module.exports = {
   // ...same to url
@@ -194,10 +207,14 @@ module.exports = {
 
 just replace the `style-loader` to `vue-style-loader`, and will auto add `VueLoaderPlugin` into the config's plugins.
 
+  - default dependencies: above sass deps + `vue-loader vue-loader-next@npm:vue-loader@16.0.0-beta.7`
+
 
 #### vue
 
 will use `vue2.6.12` for developing, and auto import the `vue-loader`.
+
+  - default dependencies: `vue`
 
 ```js
 module.exports = {
@@ -208,6 +225,8 @@ module.exports = {
 
 
 #### vue-next
+
+  - default dependencies: `vue@npm:vue@3.0.0-rc.10`
 
 will use `vue3.x` for developing, and auto import vue3's `vue-loader`
 
@@ -226,6 +245,7 @@ module.exports = {
 use default devServer settings as following:
 
   - type: `Boolean`
+  - default dependencies: `webpack-dev-server`
 
 ```js
 module.exports = {
