@@ -44,11 +44,9 @@ function mergeConfig(options) {
 }
 
 function rulePluginHandler(ruleName) {
-  const vue = ['vue', 'vue-next'];
-  if (vue.includes(ruleName)) {
-    defaultConfig.resolve.alias.vue = require.resolve(ruleName);
+  if (ruleName === 'vue') {
     defaultConfig.plugins.push(
-      require(resolvePlugin('vueLoaderPlugin'))(ruleName));
+      require(resolvePlugin('vueLoaderPlugin')));
   }
 }
 

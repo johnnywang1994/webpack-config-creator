@@ -1,7 +1,7 @@
 const { resolve } = require('../utils');
 
 const rule = {
-  test: /\.(js)$/,
+  test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
   include: [resolve('./src')],

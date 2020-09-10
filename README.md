@@ -52,7 +52,7 @@ module.exports = config;
 ### rules
 
   - type: `Array(String[, String])`
-  - allowed rules: `babel`, `css`, `scss`, `vue-scss`, `eslint`, `vue`, `vue-next`, `url`, `file-url`
+  - allowed rules: `babel`, `css`, `scss`, `vue-scss`, `eslint`, `vue`, `url`, `file-url`
 
 #### babel
 
@@ -156,9 +156,16 @@ module.exports = {
 
 #### eslint
 
+should include the eslint config in `package.json` before using this.
+
+And since the eslint-plugin-vue has two version, please manually install it into your node_modules rely on your usage version of vue.
+
+please refer: [eslint-plugin-vue](https://eslint.vuejs.org/)
+
   - default dependencies: `eslint eslint-loader babel-eslint`
 
 ```js
+// default eslint loader setting
 module.exports = {
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -166,6 +173,21 @@ module.exports = {
   include: [resolve('./src')],
   options: { emitWarnings: true },
 };
+```
+
+```json
+{
+  "eslintConfig": {
+    "extends": [
+      // use eslint:recommended
+      "webpack-config-creator/eslint"
+      // for vue
+      "webpack-config-creator/eslint/vue2"
+      // for vue-next
+      "webpack-config-creator/eslint/vue3"
+    ]
+  },
+}
 ```
 
 #### url
@@ -203,37 +225,23 @@ module.exports = {
 
 #### vue-scss
 
-just replace the `style-loader` to `vue-style-loader`, and will auto add `VueLoaderPlugin` into the config's plugins.
+just replace the `style-loader` to `vue-style-loader`, and will auto add `VueLoaderPlugin` into the config's plugins. If you are using vue3.x, please install the beta version of vue-loader `vue-loader@16.0.0-beta.7`
 
-  - default dependencies: above sass deps + `vue-loader vue-loader-next@npm:vue-loader@16.0.0-beta.7`
+  - default dependencies: above sass deps + `vue-loader`
 
 
 #### vue
 
-will use `vue2.6.12` for developing, and auto import the `vue-loader`.
+`vue` & `vue-loader` had to be installed, no matter vue2, vue3，the setting is the same, just install the version, will auto handle the compiler for it.
 
-  - default dependencies: `vue`
+> be aware that the default vue-template-compiler's version is 2.6.12, make sure to install the same version of vue2. If you use vue3, then no need to install `@vue/compiler-sfc`, it'll also be installed by default.
+
+  - default dependencies: `vue-template-compiler@2.6.12 @vue/compiler-sfc@3.0.0-rc.10`
 
 ```js
 module.exports = {
   test: /\.vue$/,
   use: 'vue-loader'
-};
-```
-
-
-#### vue-next
-
-  - default dependencies: `vue@npm:vue@3.0.0-rc.10`
-
-will use `vue3.x` for developing, and auto import vue3's `vue-loader`
-
-> be awared that, vue-loader for vue3.x is different from vue2, so if you use `vue-next` here, will auto give webpack an alias from `vue` to `vue-next`, which is installed together in package.json
-
-```js
-module.exports = {
-  test: /\.vue$/,
-  use: 'vue-loader-next' // this is installed for new vue-loader
 };
 ```
 
