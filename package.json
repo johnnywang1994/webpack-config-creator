@@ -11,7 +11,7 @@
     },
     "extends": "eslint:recommended"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.11.5",
@@ -36,14 +36,12 @@
     "vue-loader": "^15.9.3",
     "vue-loader-next": "npm:vue-loader@16.0.0-beta.7",
     "vue-template-compiler": "^2.6.12",
+    "vue": "^2.6.12",
+    "vue-next": "npm:vue@3.0.0-rc.10",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.1.4"
-  },
-  "dependencies": {
-    "vue": "^2.6.12",
-    "vue-next": "npm:vue@3.0.0-rc.10"
   },
   "engines": {
     "node": ">= 10.0.0",

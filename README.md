@@ -6,9 +6,9 @@ It is recommended to install `cross-env` together to pass NODE_ENV in your comma
 ## Install
 
 ```cmd
-npm install webpack webpack-cli webpack-config-creator --dev
+npm install webpack-config-creator --dev
 // or
-yarn add webpack webpack-cli webpack-config-creator -D
+yarn add webpack-config-creator -D
 ```
 
 
@@ -50,8 +50,6 @@ module.exports = config;
 
 
 ### rules
-
-  here uses the default settings for fast usage, since this plugin with not auto install all the package, please install the packages related to the following.
 
   - type: `Array(String[, String])`
   - allowed rules: `babel`, `css`, `scss`, `vue-scss`, `eslint`, `vue`, `vue-next`, `url`, `file-url`
