@@ -1,5 +1,6 @@
 {
-  "name": "webpack-tool",
+  "name": "webpack-config-creator",
+  "author": "Johnny Wang",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
