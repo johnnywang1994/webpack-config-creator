@@ -86,7 +86,20 @@ module.exporst = {
 
 #### css
 
+since the `postcss-loader` is used by default if you use the css related rules, there should be a `browserslists` in your package.json.
+
   - default dependencies: `style-loader css-loader mini-css-extract-plugin postcss-loader autoprefixer`
+
+```json
+{
+  // ...
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
+```
 
 ```js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
