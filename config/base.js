@@ -17,7 +17,7 @@ module.exports = (options) => {
       splitChunks: { chunks: 'all' },
     },
     resolve: {
-      extensions: ['.js', '.vue', '.json', '.scss'],
+      extensions: ['.js', '.vue', '.json', '.scss', '.svelte'],
       alias: {
         '@': resolve('./src'),
       }

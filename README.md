@@ -52,7 +52,7 @@ module.exports = config;
 ### rules
 
   - type: `Array(String[, String])`
-  - allowed rules: `babel`, `css`, `scss`, `vue-scss`, `eslint`, `vue`, `url`, `file-url`
+  - allowed rules: `babel`, `css`, `scss`, `vue-scss`, `eslint`, `vue`, `url`, `file-url`, `svelte`
 
 #### babel
 
@@ -255,6 +255,24 @@ just replace the `style-loader` to `vue-style-loader`, and will auto add `VueLoa
 module.exports = {
   test: /\.vue$/,
   use: 'vue-loader'
+};
+```
+
+
+#### svelte
+
+- default dependencies: `svelte@3.29.0 svelte-loader@2.13.6 svelte-preprocess@4.5.1`
+
+```js
+const autoPreprocess = require('svelte-preprocess');
+
+module.exports = {
+  test: /\.svelte$/,
+  exclude: /node_modules/,
+  loader: 'svelte-loader',
+  options: {
+    preprocess: autoPreprocess({})
+  }
 };
 ```
 
