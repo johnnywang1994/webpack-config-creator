@@ -2,7 +2,7 @@
   "name": "webpack-config-creator",
   "repository": "https://github.com/johnnywang1994/webpack-config-creator.git",
   "author": "Johnny Wang <johnny29621189@kimo.com>",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "license": "MIT",
   "eslintConfig": {
