@@ -6,7 +6,7 @@ const miniCssExtractPlugin = require('../plugins/miniCssExtractPlugin');
 module.exports = {
   devtool: false,
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].[hash].js',
   },
   plugins: [
     cleanWebpackPlugin,

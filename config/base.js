@@ -22,14 +22,6 @@ module.exports = (options) => {
         '@': resolve('./src'),
       }
     },
-    node: {
-      setImmediate: false,
-      dgram: 'empty',
-      fs: 'empty',
-      net: 'empty',
-      tls: 'empty',
-      child_process: 'empty',
-    },
     // defined
     module: {
       rules: [],
@@ -37,14 +29,19 @@ module.exports = (options) => {
     plugins: [],
   };
 
-  devServer && (config.devServer = {
-    host: '0.0.0.0',
-    disableHostCheck: true,
-    inline: true,
-    hot: true,
-    historyApiFallback: true,
-    overlay: { errors: true },
-  });
+  if (devServer) {
+    const df = {
+      host: '0.0.0.0',
+      disableHostCheck: true,
+      inline: true,
+      hot: true,
+      historyApiFallback: true,
+      overlay: { errors: true },
+    };
+    config.devServer = typeof devServer === 'object'
+      ? Object.assign(df, devServer)
+      : df;
+  }
 
   return config;
 }

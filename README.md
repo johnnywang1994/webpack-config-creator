@@ -144,7 +144,7 @@ module.exports = {
 
 Almost same as above `css`
 
-  - default dependencies: css deps + `node-sass sass-loader`
+  - default dependencies: css deps + `sass sass-loader`
 
 ```js
 //...
@@ -281,7 +281,7 @@ module.exports = {
 
 use default devServer settings as following:
 
-  - type: `Boolean`
+  - type: `Boolean` || `Object`
   - default dependencies: `webpack-dev-server`
 
 ```js
@@ -294,6 +294,8 @@ module.exports = {
   overlay: { errors: true },
 };
 ```
+
+if an object is provided, will use `Object.assign` to merge with default settings.
 
 
 ### defineEnv
@@ -316,6 +318,15 @@ define sass prepend datas
     * data
       - type: `String`
       - what: scss text to be prepend
+
+```js
+module.exports = {
+  defineSass: {
+    injectEnv: true, // this will auto inject all the env variable into "data"
+    data: '$node-env: ' + process.env.NODE_ENV + ';', // additionalData for sass options
+  }
+};
+```
 
 
 ### template
