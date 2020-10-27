@@ -268,11 +268,9 @@ just replace the `style-loader` to `vue-style-loader`, and will auto add `VueLoa
 
 #### vue
 
-`vue` & `vue-loader` had to be installed, no matter vue2, vue3，the setting is the same, just install the version, will auto handle the compiler for it.
+`vue` & `vue-loader` & `compiler` has to be installed by yourself, no matter vue2, vue3，the setting is the same, just install the version, will auto handle the compiler for it.
 
-> be aware that the default vue-template-compiler's version is 2.6.12, make sure to install the same version of vue2. If you use vue3, then no need to install `@vue/compiler-sfc`, it'll also be installed by default.
-
-  - default dependencies: `vue-template-compiler@2.6.12 @vue/compiler-sfc@3.0.0-rc.10`
+> be aware that vue2 use the compiler named `vue-template-compiler`, which vue3 is `@vue/compiler-sfc`, do not install them together into your deps.
 
 ```js
 module.exports = {
