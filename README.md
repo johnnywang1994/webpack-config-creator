@@ -41,6 +41,29 @@ const config = getConfig({
 module.exports = config;
 ```
 
+above will use an default base config as following:
+
+you can easily overwrite these by using `extend` option
+
+```js
+const config = {
+  entry: resolve('./src/main.js'),
+  output: {
+    path: resolve('./dist'),
+    publicPath: '/'
+  },
+  optimization: {
+    splitChunks: { chunks: 'all' },
+  },
+  resolve: {
+    extensions: ['.mjs', '.js', '.vue', '.json', '.scss', '.svelte'],
+    alias: {
+      '@': resolve('./src'),
+    }
+  }
+};
+```
+
 
 ## Settings
 
